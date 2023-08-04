@@ -24,7 +24,12 @@ const server = app.listen(process.env.PORT,()=>{
     console.log(`Connected to server on port ${process.env.PORT}`);
 })
 
-const io=socket(server)
+const io=socket(server,{
+    cors:{
+        origin:"*",
+        Credential:true,
+    }
+})
 global.onlineUsers=new Map();
 
 io.on("connection",(socket)=>{
