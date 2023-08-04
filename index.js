@@ -9,7 +9,8 @@ require('dotenv').config();
 
 app.use(cors({
     origin:process.env.SOCKET_URL,
-    methods:["GET","POST","PUT","DELETE"]
+    methods:["GET","POST","PUT","DELETE"],
+    Credential:true,
 }));
 app.use(express.json());
 app.use('/api/auth',require('./routes/Auth'))
